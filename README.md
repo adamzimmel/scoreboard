@@ -19,3 +19,5 @@ A shift register is a chip you can use to control many outputs (8 here) at the s
 Some dude who triggered water pumps via the gpio pins. 
 He used realays also which is why his wiring diagrams might prove useful. 
 https://github.com/brycedewitt/ASMARK2
+
+https://lastminuteengineers.com/74hc595-shift-register-arduino-tutorial/
