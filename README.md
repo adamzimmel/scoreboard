@@ -21,3 +21,5 @@ He used realays also which is why his wiring diagrams might prove useful.
 https://github.com/brycedewitt/ASMARK2
 
 https://lastminuteengineers.com/74hc595-shift-register-arduino-tutorial/
+
+https://www.youtube.com/watch?v=cAT07gy4DII
