@@ -1,12 +1,12 @@
  Scoreboard Numbers Bulb assignments
 
-Number 0 = Bulbs 1,2,3,4,5,6,8
-Number 1 = Bulbs 1,2,8
-Number 2 = Bulbs 2,3,5,6,8
-Number 3 = Bulbs 1,2,3,6,8,9
-Number 4 = Bulbs 1,2,4,8,9
-Number 5 = Bulbs 3,4,6,8,9
-Number 6 = Bulbs 1,3,4,5,6,8,9
-Number 7 = Bulbs 1,2,3,8
-Number 8 = Bulbs 1,2,3,4,5,6,8,9
-Number 9 = Bulbs 1,2,3,4,8,9
+Number 0 = Bulbs 1,2,3,4,5,6,8 (00000001) reversed (10000000) - digit 128
+Number 1 = Bulbs 1,2,8 (00111101) reversed (10111100) - 
+Number 2 = Bulbs 2,3,5,6,8,9 (10010000) reversed (00001001)
+Number 3 = Bulbs 1,2,3,6,8,9 (00011000) reversed (00011000)
+Number 4 = Bulbs 1,2,4,8,9 (00101100) reversed (00110100)
+Number 5 = Bulbs 3,4,6,8,9 (01001000) reversed (00010010)
+Number 6 = Bulbs 1,3,4,5,6,8,9 (01000000) reversed (00000010)
+Number 7 = Bulbs 1,2,3,8 (00011101) reversed (10111000)
+Number 8 = Bulbs 1,2,3,4,5,6,8,9 (00000000) reversed (00000000)
+Number 9 = Bulbs 1,2,3,4,8,9 (00001100) reversed (00110000)
