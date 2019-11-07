@@ -1,0 +1,183 @@
+public class main.Java{ 
+	public static void main(String[] args) 
+	{ 
+		int num1 = 5; 
+		String numstring; 
+
+		// switch statement with int data type 
+		switch (num1) { 
+		case 1: 
+			
+			
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 128);  
+    Serial.println('0');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+			
+			
+			break; 
+		case 2: 
+			
+			
+			digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+    Serial.println('1');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+			
+			break; 
+		case 3: 
+			
+			
+		digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+    Serial.println('2');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+			
+			break; 
+		case 4: 
+			
+			
+   digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 24);  
+    Serial.println('3');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+			
+			break; 
+		case 5: 
+			
+			
+			 digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 52);  
+    Serial.println('4');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+			
+			
+			break; 
+		case 6: 
+			
+			
+digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+    Serial.println('5');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+			
+			break; 
+		case 7: 
+			
+			
+		digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 2);  
+    Serial.println('6');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+			
+			break; 
+			
+					case 8: 
+					    
+					    
+			    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 184);  
+    Serial.println('7');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);		    
+					    
+					    
+					    
+					    
+					    
+					    
+					    
+					    
+			break;
+			
+			
+					case 9: 
+					    
+					    
+					    
+			   digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+    Serial.println('8');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);		    
+					    
+					    
+					    
+					    
+					    
+					    
+					    
+			break;		    
+			
+			
+					case 10: 
+					    
+					    
+					    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 48);  
+    Serial.println('9');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+      
+					    
+					    
+					    
+					    
+					    
+					    
+					    
+					    
+			break;
+			
+			
+		default: 
+			
+			
+			numstring = "Invalid day"; 
+			
+			break; 
+		} 
+	
+	
+		System.out.println(numstring); 
+	} 
+} 
