@@ -23,3 +23,7 @@ https://github.com/brycedewitt/ASMARK2
 https://lastminuteengineers.com/74hc595-shift-register-arduino-tutorial/
 
 https://www.youtube.com/watch?v=cAT07gy4DII
+
+
+Link for the switch statements on taking user input in Java. 
+https://www.w3schools.com/java/java_user_input.asp
