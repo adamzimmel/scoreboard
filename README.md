@@ -27,3 +27,7 @@ https://www.youtube.com/watch?v=cAT07gy4DII
 
 Link for the switch statements on taking user input in Java. 
 https://www.w3schools.com/java/java_user_input.asp
+
+RPI and Arduino - Happily Ever After
+https://www.sunfounder.com/blog/rpi-ard/
+https://www.instructables.com/id/Raspberry-Pi-Arduino-Serial-Communication/
