@@ -1,0 +1,121 @@
+//Pin connected to ST_CP of 74HC595
+int latchPin = 8;
+//Pin connected to SH_CP of 74HC595
+int clockPin = 12;
+////Pin connected to DS of 74HC595
+int dataPin = 11;
+
+byte data = 0; 
+
+
+
+void setup() {
+  pinMode(latchPin, OUTPUT);
+
+}
+
+void loop() {
+
+  blinkAll_2Bytes(1,500); 
+
+  for (int j = 0; j < 8; j++) {
+    digitalWrite(latchPin, 0);
+    lightShiftPinA(7-j);
+    lightShiftPinA(j);
+    digitalWrite(latchPin, 1);
+    delay(1000);
+  }
+
+  for (int j = 0; j < 8; j++) {
+    digitalWrite(latchPin, 0);
+    lightShiftPinB(j);
+    lightShiftPinB(7-j);
+    digitalWrite(latchPin, 1);
+    delay(1000);
+  } 
+
+}
+
+//This function uses bitwise math to move the pins up
+void lightShiftPinA(int p) {
+  //defines a local variable
+  int pin;
+
+  //this is line uses a bitwise operator
+  //shifting a bit left using << is the same
+  //as multiplying the decimal number by two. 
+  pin = 1<< p;
+
+  //move 'em out
+  shiftOut(dataPin, clockPin, pin);   
+
+}
+
+void lightShiftPinB(int p) {
+  //defines a local variable
+  int pin;
+
+  pin = 1;
+
+  for (int x = 0; x < p; x++) {
+    pin = pin * 2; 
+  }
+  //move 'em out
+  shiftOut(dataPin, clockPin, pin);   
+}
+
+
+void shiftOut(int myDataPin, int myClockPin, byte myDataOut) {
+
+  int i=0;
+  int pinState;
+  pinMode(myClockPin, OUTPUT);
+  pinMode(myDataPin, OUTPUT);
+
+  
+  digitalWrite(myDataPin, 0);
+  digitalWrite(myClockPin, 0);
+
+  
+  for (i=7; i>=0; i--)  {
+    digitalWrite(myClockPin, 0);
+
+    
+    if ( myDataOut & (1<<i) ) {
+      pinState= 1;
+    }
+    else {	
+      pinState= 0;
+    }
+
+   
+    digitalWrite(myDataPin, pinState);
+    digitalWrite(myClockPin, 1);
+    digitalWrite(myDataPin, 0);
+  }
+
+  //stop shifting
+  digitalWrite(myClockPin, 0);
+}
+
+
+
+void blinkAll_2Bytes(int n, int d) {
+  digitalWrite(latchPin, 0);
+  shiftOut(dataPin, clockPin, 0);
+  shiftOut(dataPin, clockPin, 0);
+  digitalWrite(latchPin, 1);
+  delay(200);
+  for (int x = 0; x < n; x++) {
+    digitalWrite(latchPin, 0);
+    shiftOut(dataPin, clockPin, 255);
+    shiftOut(dataPin, clockPin, 255);
+    digitalWrite(latchPin, 1);
+    delay(d);
+    digitalWrite(latchPin, 0);
+    shiftOut(dataPin, clockPin, 0);
+    shiftOut(dataPin, clockPin, 0);
+    digitalWrite(latchPin, 1);
+    delay(d);
+  }
+}
