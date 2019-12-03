@@ -1,0 +1,48 @@
+#define NUM_LEDS     16
+
+int delayTime = 100;
+
+int latchPin = 5;
+int clockPin = 6;
+int dataPin = 4;
+
+
+void setup()
+{
+  pinMode(latchPin, 8);
+  pinMode(dataPin, 12);  
+  pinMode(clockPin, 11);
+}
+
+void updateShiftRegister(byte storageByte)
+{
+  digitalWrite(latchPin, LOW);
+
+  shiftOut(dataPin, clockPin, LSBFIRST, storageByte);
+
+  digitalWrite(latchPin, HIGH);
+}
+
+void loop()
+{
+  byte storageByte = 0x01;
+
+  for (int i = 0; i < NUM_LEDS-1; i++)
+  {
+    updateShiftRegister(storageByte);
+
+  
+    storageByte = storageByte << 1;
+
+    delay(delayTime);   
+  }
+
+  for (int i = 0; i < NUM_LEDS-1; i++)
+  {
+    updateShiftRegister(storageByte);
+
+    storageByte = storageByte >> 1;
+
+    delay(delayTime);   
+  }
+}
