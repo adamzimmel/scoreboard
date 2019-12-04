@@ -1,0 +1,129 @@
+//Pin connected to ST_CP of 74HC595
+int latchPin = 8;
+//Pin connected to SH_CP of 74HC595
+int clockPin = 12;
+////Pin connected to DS of 74HC595
+int dataPin = 11;
+// the wait time
+int wait = 5000;
+
+void setup() {
+  //set pins to output so you can control the shift register
+  pinMode(latchPin, OUTPUT);
+  pinMode(clockPin, OUTPUT);
+  pinMode(dataPin, OUTPUT);
+}
+
+void loop() {
+    Serial.begin(9600);
+    // take the latchPin low so 
+    // the LEDs don't change while you're sending in bits:
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 128);  
+    shiftOut(dataPin, clockPin, MSBFIRST, 128);
+    Serial.println('0');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 188);
+    shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+    Serial.println('1');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 9);
+    shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+  
+    Serial.println('2');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 24);  
+    shiftOut(dataPin, clockPin, MSBFIRST, 24);  
+
+    Serial.println('3');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 52);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52);  
+
+    Serial.println('4');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+
+    Serial.println('5');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 2);
+        shiftOut(dataPin, clockPin, MSBFIRST, 2);  
+  
+    Serial.println('6');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 184); 
+        shiftOut(dataPin, clockPin, MSBFIRST, 184);  
+ 
+    Serial.println('7');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 0); 
+        shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+ 
+    Serial.println('8');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 48);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48);  
+
+    Serial.println('9');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+    
+}
