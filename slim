@@ -1,0 +1,1017 @@
+//Pin connected to ST_CP of 74HC595
+int latchPin = 8;
+//Pin connected to SH_CP of 74HC595
+int clockPin = 12;
+////Pin connected to DS of 74HC595
+int dataPin = 11;
+// the wait time
+int wait = 500;
+
+void setup() {
+  //set pins to output so you can control the shift register
+  pinMode(latchPin, OUTPUT);
+  pinMode(clockPin, OUTPUT);
+  pinMode(dataPin, OUTPUT);
+}
+
+void loop() {
+    Serial.begin(9600);
+
+    Serial.begin(9600);
+    // take the latchPin low so 
+    // the LEDs don't change while you're sending in bits:
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 128);  
+    Serial.println('0');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+    Serial.println('1');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+    Serial.println('2');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 24);  
+    Serial.println('3');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 52);  
+    Serial.println('4');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+    Serial.println('5');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 2);  
+    Serial.println('6');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 184);  
+    Serial.println('7');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+    Serial.println('8');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 48);  
+    Serial.println('9');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+   
+digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 128);  
+
+    Serial.println('10');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+
+    Serial.println('11');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+
+    Serial.println('12');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24);  
+
+    Serial.println('13');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52);  
+
+    Serial.println('14');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+
+    Serial.println('15');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 2);  
+
+    Serial.println('16');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 184);  
+
+    Serial.println('17');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+
+    Serial.println('18');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48);  
+
+    Serial.println('19');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 128);  
+
+    Serial.println('20');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+     digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48);  
+
+    Serial.println('19');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+      digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 0); 
+
+
+
+digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 128);  
+    Serial.println('20');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+    Serial.println('21');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+    Serial.println('22');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+    Serial.println('23');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52;  
+    Serial.println('24');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 18;  
+    Serial.println('25);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 2;  
+    Serial.println('26');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 184;  
+    Serial.println('27');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 0;  
+    Serial.println('28);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait)
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48;  
+    Serial.println('29');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 128;  
+    Serial.println('30');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    
+    
+    
+    
+
+
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 24);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+    Serial.println('31);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 24);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+    Serial.println('32');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 24);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+    Serial.println('33');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 24);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52;  
+    Serial.println('34');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 24);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 18;  
+    Serial.println('35);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 24);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 2;  
+    Serial.println('36');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 24);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 184;  
+    Serial.println('37');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 24);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 0;  
+    Serial.println('38);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait)
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 24);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48;  
+    Serial.println('39');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 52);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+    Serial.println('40');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    
+    
+        
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 52);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+    Serial.println('31);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 52);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+    Serial.println('32');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 52);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+    Serial.println('33');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 52);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52;  
+    Serial.println('34');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 52);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 18;  
+    Serial.println('35);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 52);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 2;  
+    Serial.println('36');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 52);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 184;  
+    Serial.println('37');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 52);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 0;  
+    Serial.println('38);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait)
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 52);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48;  
+    Serial.println('39');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 52);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+    Serial.println('40');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+        
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+    Serial.println('31);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+    Serial.println('32');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+    Serial.println('33');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52;  
+    Serial.println('34');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 18;  
+    Serial.println('35);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 2;  
+    Serial.println('36');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 184;  
+    Serial.println('37');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 0;  
+    Serial.println('38);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait)
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48;  
+    Serial.println('39');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+    Serial.println('40');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    //xxxxx
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 2);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+    Serial.println('31);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 2);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+    Serial.println('32');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 2);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+    Serial.println('33');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 2);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52;  
+    Serial.println('34');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 2);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 18;  
+    Serial.println('35);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 2);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 2;  
+    Serial.println('36');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 2);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 184;  
+    Serial.println('37');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 2);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 0;  
+    Serial.println('38);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait)
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 2);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48;  
+    Serial.println('39');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 184);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 128;  
+    Serial.println('40');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    
+           digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 184);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+    Serial.println('31);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 184);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+    Serial.println('32');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 184);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+    Serial.println('33');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 184);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52;  
+    Serial.println('34');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 184);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 18;  
+    Serial.println('35);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 184);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 2;  
+    Serial.println('36');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 184);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 184;  
+    Serial.println('37');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 184);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 0;  
+    Serial.println('38);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait)
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 184);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48;  
+    Serial.println('39');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 128;  
+    Serial.println('40');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+
+
+         digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+    Serial.println('31);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+    Serial.println('32');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+    Serial.println('33');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52;  
+    Serial.println('34');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 18;  
+    Serial.println('35);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 2;  
+    Serial.println('36');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 184;  
+    Serial.println('37');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 0;  
+    Serial.println('38);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait)
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48;  
+    Serial.println('39');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 128;  
+    Serial.println('40');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+             digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 48);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 188);  
+    Serial.println('31);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 48);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 9);  
+    Serial.println('32');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+    
+    
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 48);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+    Serial.println('33');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 48);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52;  
+    Serial.println('34');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 48);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 18;  
+    Serial.println('35);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 48);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 2;  
+    Serial.println('36');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 48);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 184;  
+    Serial.println('37');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 48);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 0;  
+    Serial.println('38);
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait)
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 48);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48;  
+    Serial.println('39');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
+    
+        digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, 128);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 128;  
+    Serial.println('40');
+
+    digitalWrite(latchPin, HIGH);
+
+    delay(wait);
