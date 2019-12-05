@@ -1,0 +1,161 @@
+//Pin connected to ST_CP of 74HC595
+int latchPin = 8;
+//Pin connected to SH_CP of 74HC595
+int clockPin = 12;
+////Pin connected to DS of 74HC595
+int dataPin = 11;
+// the wait time
+int wait = 500;
+
+void setup() {
+  //set pins to output so you can control the shift register
+  pinMode(latchPin, OUTPUT);
+  pinMode(clockPin, OUTPUT);
+  pinMode(dataPin, OUTPUT);
+}
+
+int bulb(int x){
+
+    if (x==0)
+      return 128;
+    else if (x ==1)
+      return 188;
+    else if (x ==2)
+      return 9;
+    else if (x ==3)
+      return 24;
+    else if (x ==4)
+      return 52;
+    else if (x ==5)
+      return 18;
+    else if (x ==6)
+      return 2;
+    else if (x ==7)
+      return 184;
+    else if (x ==8)
+      return 0;
+    else if (x ==9)
+      return 48;
+    else 
+      Serial.println("Error");
+}
+
+
+
+
+
+
+
+
+
+void loop() {
+
+
+  
+
+  for (int tens = 0; tens++; tens < 10){
+    for( int ones = 0; ones++; ones < 10){
+
+      shiftOut(dataPin,clockPin,MSBFIRST, bulb(tens));
+      shiftOut(dataPin,clockPin,MSBFIRST, bulb(ones));
+      Serial.println("It worked "+ tens + ones);
+    }
+  }
+
+
+
+  /*
+    Serial.begin(9600);
+    // take the latchPin low so 
+    // the LEDs don't change while you're sending in bits:
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(0));  
+    Serial.println('0');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(1));  
+    Serial.println('1');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(2));  
+    Serial.println('2');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(3));  
+    Serial.println('3');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(4));  
+    Serial.println('4');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(5));  
+    Serial.println('5');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(6));  
+    Serial.println('6');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(7));  
+    Serial.println('7');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(8));  
+    Serial.println('8');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+
+    digitalWrite(latchPin, LOW);
+    // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(9));  
+    Serial.println('9');
+    //take the latch pin high so the LEDs will light up:
+    digitalWrite(latchPin, HIGH);
+    // pause before next value:
+    delay(wait);
+    */
+}
