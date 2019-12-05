@@ -15,13 +15,14 @@ void setup() {
 }
 
 void loop() {
-    Serial.begin(9600);
 
     Serial.begin(9600);
     // take the latchPin low so 
     // the LEDs don't change while you're sending in bits:
     digitalWrite(latchPin, LOW);
     // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 128);  
+    Serial.println('0');
     shiftOut(dataPin, clockPin, MSBFIRST, 128);  
     Serial.println('0');
     //take the latch pin high so the LEDs will light up:
@@ -31,6 +32,8 @@ void loop() {
 
     digitalWrite(latchPin, LOW);
     // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 128);  
+    Serial.println('0');
     shiftOut(dataPin, clockPin, MSBFIRST, 188);  
     Serial.println('1');
     //take the latch pin high so the LEDs will light up:
@@ -40,6 +43,8 @@ void loop() {
 
     digitalWrite(latchPin, LOW);
     // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 128);  
+    Serial.println('0');
     shiftOut(dataPin, clockPin, MSBFIRST, 9);  
     Serial.println('2');
     //take the latch pin high so the LEDs will light up:
@@ -49,6 +54,8 @@ void loop() {
 
     digitalWrite(latchPin, LOW);
     // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 128);  
+    Serial.println('0');
     shiftOut(dataPin, clockPin, MSBFIRST, 24);  
     Serial.println('3');
     //take the latch pin high so the LEDs will light up:
@@ -58,6 +65,8 @@ void loop() {
 
     digitalWrite(latchPin, LOW);
     // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 128);  
+    Serial.println('0');
     shiftOut(dataPin, clockPin, MSBFIRST, 52);  
     Serial.println('4');
     //take the latch pin high so the LEDs will light up:
@@ -67,6 +76,8 @@ void loop() {
 
     digitalWrite(latchPin, LOW);
     // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 128);  
+    Serial.println('0');
     shiftOut(dataPin, clockPin, MSBFIRST, 18);  
     Serial.println('5');
     //take the latch pin high so the LEDs will light up:
@@ -76,6 +87,8 @@ void loop() {
 
     digitalWrite(latchPin, LOW);
     // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 128);  
+    Serial.println('0');
     shiftOut(dataPin, clockPin, MSBFIRST, 2);  
     Serial.println('6');
     //take the latch pin high so the LEDs will light up:
@@ -85,6 +98,8 @@ void loop() {
 
     digitalWrite(latchPin, LOW);
     // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 128);  
+    Serial.println('0');
     shiftOut(dataPin, clockPin, MSBFIRST, 184);  
     Serial.println('7');
     //take the latch pin high so the LEDs will light up:
@@ -94,6 +109,8 @@ void loop() {
 
     digitalWrite(latchPin, LOW);
     // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 128);  
+    Serial.println('0');
     shiftOut(dataPin, clockPin, MSBFIRST, 0);  
     Serial.println('8');
     //take the latch pin high so the LEDs will light up:
@@ -103,6 +120,8 @@ void loop() {
 
     digitalWrite(latchPin, LOW);
     // shift out the bits:
+    shiftOut(dataPin, clockPin, MSBFIRST, 128);  
+    Serial.println('0');
     shiftOut(dataPin, clockPin, MSBFIRST, 48);  
     Serial.println('9');
     //take the latch pin high so the LEDs will light up:
@@ -287,7 +306,7 @@ digitalWrite(latchPin, LOW);
     digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 9);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24);  
     Serial.println('23');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -298,7 +317,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 9);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 52;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52);  
     Serial.println('24');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -308,8 +327,8 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 9);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 18;  
-    Serial.println('25);
+        shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+    Serial.println('25');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
@@ -318,7 +337,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 9);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 2;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 2);  
     Serial.println('26');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -328,7 +347,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 9);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 184;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 184);  
     Serial.println('27');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -338,17 +357,17 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 9);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 0;  
-    Serial.println('28);
+        shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+    Serial.println('28');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
-    delay(wait)
+    delay(wait);
     
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 9);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 48;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48);  
     Serial.println('29');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -357,8 +376,8 @@ digitalWrite(latchPin, LOW);
     
         digitalWrite(latchPin, LOW);
     // shift out the bits:
-    shiftOut(dataPin, clockPin, MSBFIRST, 24;  
-        shiftOut(dataPin, clockPin, MSBFIRST, 128;  
+    shiftOut(dataPin, clockPin, MSBFIRST, 24);  
+        shiftOut(dataPin, clockPin, MSBFIRST, 128);  
     Serial.println('30');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -377,7 +396,7 @@ digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 24);  
         shiftOut(dataPin, clockPin, MSBFIRST, 188);  
-    Serial.println('31);
+    Serial.println('31');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
@@ -400,7 +419,7 @@ digitalWrite(latchPin, LOW);
     digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 24);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24);  
     Serial.println('33');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -411,7 +430,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 24);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 52;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52);  
     Serial.println('34');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -421,8 +440,8 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 24);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 18;  
-    Serial.println('35);
+        shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+    Serial.println('35');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
@@ -431,7 +450,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 24);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 2;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 2);  
     Serial.println('36');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -441,7 +460,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 24);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 184;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 184);  
     Serial.println('37');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -451,17 +470,17 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 24);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 0;  
-    Serial.println('38);
+        shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+    Serial.println('38');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
-    delay(wait)
+    delay(wait);
     
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 24);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 48;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48);  
     Serial.println('39');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -471,7 +490,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 52);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24);  
     Serial.println('40');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -486,7 +505,7 @@ digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 52);  
         shiftOut(dataPin, clockPin, MSBFIRST, 188);  
-    Serial.println('31);
+    Serial.println('31');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
@@ -509,7 +528,7 @@ digitalWrite(latchPin, LOW);
     digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 52);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24);  
     Serial.println('33');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -520,7 +539,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 52);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 52;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52);  
     Serial.println('34');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -530,8 +549,8 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 52);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 18;  
-    Serial.println('35);
+        shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+    Serial.println('35');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
@@ -540,7 +559,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 52);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 2;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 2);  
     Serial.println('36');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -550,7 +569,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 52);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 184;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 184);  
     Serial.println('37');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -560,17 +579,17 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 52);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 0;  
-    Serial.println('38);
+        shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+    Serial.println('38');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
-    delay(wait)
+    delay(wait);
     
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 52);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 48;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48);  
     Serial.println('39');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -580,7 +599,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 52);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24);  
     Serial.println('40');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -593,7 +612,7 @@ digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 18);  
         shiftOut(dataPin, clockPin, MSBFIRST, 188);  
-    Serial.println('31);
+    Serial.println('31');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
@@ -616,7 +635,7 @@ digitalWrite(latchPin, LOW);
     digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 18);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24);  
     Serial.println('33');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -627,7 +646,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 18);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 52;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52);  
     Serial.println('34');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -637,8 +656,8 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 18);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 18;  
-    Serial.println('35);
+        shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+    Serial.println('35');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
@@ -647,7 +666,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 18);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 2;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 2);  
     Serial.println('36');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -657,7 +676,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 18);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 184;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 184);  
     Serial.println('37');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -667,17 +686,17 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 18);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 0;  
-    Serial.println('38);
+        shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+    Serial.println('38');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
-    delay(wait)
+    delay(wait);
     
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 18);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 48;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48);  
     Serial.println('39');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -687,7 +706,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 18);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24);  
     Serial.println('40');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -699,7 +718,7 @@ digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 2);  
         shiftOut(dataPin, clockPin, MSBFIRST, 188);  
-    Serial.println('31);
+    Serial.println('31');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
@@ -722,7 +741,7 @@ digitalWrite(latchPin, LOW);
     digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 2);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24);  
     Serial.println('33');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -733,7 +752,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 2);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 52;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52);  
     Serial.println('34');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -743,8 +762,8 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 2);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 18;  
-    Serial.println('35);
+        shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+    Serial.println('35');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
@@ -753,7 +772,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 2);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 2;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 2);  
     Serial.println('36');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -763,7 +782,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 2);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 184;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 184);  
     Serial.println('37');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -773,17 +792,17 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 2);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 0;  
-    Serial.println('38);
+        shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+    Serial.println('38');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
-    delay(wait)
+    delay(wait);
     
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 2);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 48;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48);  
     Serial.println('39');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -793,7 +812,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 184);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 128;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 128);  
     Serial.println('40');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -806,7 +825,7 @@ digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 184);  
         shiftOut(dataPin, clockPin, MSBFIRST, 188);  
-    Serial.println('31);
+    Serial.println('31');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
@@ -829,7 +848,7 @@ digitalWrite(latchPin, LOW);
     digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 184);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24);  
     Serial.println('33');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -840,7 +859,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 184);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 52;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52);  
     Serial.println('34');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -850,8 +869,8 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 184);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 18;  
-    Serial.println('35);
+        shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+    Serial.println('35');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
@@ -860,7 +879,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 184);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 2;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 2);  
     Serial.println('36');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -870,7 +889,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 184);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 184;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 184);  
     Serial.println('37');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -880,17 +899,17 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 184);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 0;  
-    Serial.println('38);
+        shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+    Serial.println('38');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
-    delay(wait)
+    delay(wait);
     
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 184);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 48;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48);  
     Serial.println('39');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -900,7 +919,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 0);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 128;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 128);  
     Serial.println('40');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -913,7 +932,7 @@ digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 0);  
         shiftOut(dataPin, clockPin, MSBFIRST, 188);  
-    Serial.println('31);
+    Serial.println('31');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
@@ -936,7 +955,7 @@ digitalWrite(latchPin, LOW);
     digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 0);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24);  
     Serial.println('33');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -947,7 +966,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 0);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 52;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52);  
     Serial.println('34');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -957,8 +976,8 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 0);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 18;  
-    Serial.println('35);
+        shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+    Serial.println('35');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
@@ -967,7 +986,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 0);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 2;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 2);  
     Serial.println('36');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -977,7 +996,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 0);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 184;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 184);  
     Serial.println('37');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -987,17 +1006,17 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 0);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 0;  
-    Serial.println('38);
+        shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+    Serial.println('38');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
-    delay(wait)
+    delay(wait);
     
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 0);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 48;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48);  
     Serial.println('39');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -1007,7 +1026,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 0);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 128;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 128);  
     Serial.println('40');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -1019,7 +1038,7 @@ digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 48);  
         shiftOut(dataPin, clockPin, MSBFIRST, 188);  
-    Serial.println('31);
+    Serial.println('31');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
@@ -1042,7 +1061,7 @@ digitalWrite(latchPin, LOW);
     digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 48);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 24;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 24);  
     Serial.println('33');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -1053,7 +1072,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 48);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 52;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 52);  
     Serial.println('34');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -1063,8 +1082,8 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 48);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 18;  
-    Serial.println('35);
+        shiftOut(dataPin, clockPin, MSBFIRST, 18);  
+    Serial.println('35');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
@@ -1073,7 +1092,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 48);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 2;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 2);  
     Serial.println('36');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -1083,7 +1102,7 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 48);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 184;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 184);  
     Serial.println('37');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -1093,17 +1112,17 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 48);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 0;  
-    Serial.println('38);
+        shiftOut(dataPin, clockPin, MSBFIRST, 0);  
+    Serial.println('38');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
     // pause before next value:
-    delay(wait)
+    delay(wait);
     
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 48);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 48;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 48);  
     Serial.println('39');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
@@ -1113,9 +1132,10 @@ digitalWrite(latchPin, LOW);
         digitalWrite(latchPin, LOW);
     // shift out the bits:
     shiftOut(dataPin, clockPin, MSBFIRST, 128);  
-        shiftOut(dataPin, clockPin, MSBFIRST, 128;  
+        shiftOut(dataPin, clockPin, MSBFIRST, 128);  
     Serial.println('40');
     //take the latch pin high so the LEDs will light up:
     digitalWrite(latchPin, HIGH);
-    // pause before next value:
-    delay(wait);
+    // pause before next value: 
+    }
+   
