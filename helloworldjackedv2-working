@@ -1,0 +1,111 @@
+//import the IR library
+#include <IRremote.h>
+#include <IRremoteInt.h>
+
+//Pin connected to ST_CP of 74HC595
+int latchPin = 8;
+//Pin connected to SH_CP of 74HC595
+int clockPin = 12;
+////Pin connected to DS of 74HC595
+int dataPin = 11;
+// the wait time
+int wait = 500;
+int homeTens=0;
+int homeOnes=0;
+int homeTotal=0;
+//Pin set up to receive the IR signal
+int RECV_PIN = 7;
+IRrecv irrecv(RECV_PIN);
+decode_results results;
+
+void setup() {
+  //set pins to output so you can control the shift register
+  pinMode(latchPin, OUTPUT);
+  pinMode(clockPin, OUTPUT);
+  pinMode(dataPin, OUTPUT);
+  //Start the Serial Monitor
+  Serial.begin(9600);
+  //Start the receiver
+  irrecv.enableIRIn();
+  //initialize board
+  digitalWrite(latchPin, LOW);
+  shiftOut(dataPin,clockPin,MSBFIRST, bulb(0));
+  shiftOut(dataPin,clockPin,MSBFIRST, bulb(0));
+  digitalWrite(latchPin, HIGH); 
+}
+int homeScore(int x){
+  homeTotal=homeTotal+x;
+  if (homeTotal<0||homeTotal==100)
+    homeTotal=0;
+}
+
+void turnOff(){
+  digitalWrite(latchPin, LOW);
+  shiftOut(dataPin,clockPin,MSBFIRST, 255);
+  shiftOut(dataPin,clockPin,MSBFIRST, 255);
+  digitalWrite(latchPin, HIGH); 
+}
+
+int bulb(int x){
+    if (x==0)
+      return 128;
+    else if (x==1)
+      return 188;
+    else if (x==2)
+      return 9;
+    else if (x==3)
+      return 24;
+    else if (x==4)
+      return 52;
+    else if (x==5)
+      return 18;
+    else if (x==6)
+      return 2;
+    else if (x==7)
+      return 184;
+    else if (x==8)
+      return 0;
+    else if (x==9)
+      return 48;
+    else 
+      Serial.println("Error");
+}
+
+void loop() {
+   
+  if (irrecv.decode(&results)){
+   Serial.println(results.value);
+      switch (results.value) {
+       case 4294967295:
+        Serial.println("Repeat signal");
+        break;
+       case 4013508635:
+        turnOff();
+        Serial.println("Power");
+        break;
+       case 43968679:
+        homeScore(1);
+        Serial.println ("UP");
+        break;
+       case 3871166486:
+        homeScore(-1);
+        Serial.println("DOWN");
+        break;
+       case 4042557090:
+        homeTotal=0;
+        Serial.println("CLEAR");
+        break;
+       default:
+        Serial.println(results.value);
+        Serial.println("Not recorded yet");
+       }
+     digitalWrite(latchPin, LOW);
+     shiftOut(dataPin,clockPin,MSBFIRST, bulb(homeTotal/10));
+     shiftOut(dataPin,clockPin,MSBFIRST, bulb(homeTotal%10));
+     Serial.print("Home Score ");
+     Serial.println(homeTotal);
+     digitalWrite(latchPin, HIGH);
+     irrecv.resume(); // Receive the next value
+   }        
+              //delay(wait);
+}
