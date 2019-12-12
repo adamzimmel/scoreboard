@@ -1,0 +1,22 @@
+if ( digitalRead(input_pin) == LOW )       // sets to low to start timer pretty close to HWjacked1
+         {
+
+        if ( Var1 >= 1000 );           // increasing variable "seconds" every second
+                                              // Var1 being whats being increased
+      
+      {
+      seconds ++;
+      Var2 = Var;
+       }
+    }
+   else
+   {
+   seconds = 0;                                // if signal is HIGH, reseting var for seconds. 
+   digitalWrite( output_pin, LOW );
+   }                                                 
+
+
+if ( seconds == 60 )                         // should reset and continue throughout function.
+  { digitalWrite(output_pin, HIGH);
+    seconds = 0;
+  }
