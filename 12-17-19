@@ -1,0 +1,250 @@
+//import the IR library
+#include <IRremote.h>
+#include <IRremoteInt.h>
+
+//Pin connected to ST_CP of 74HC595
+int latchPin = 8;
+//Pin connected to SH_CP of 74HC595
+int clockPin = 12;
+////Pin connected to DS of 74HC595
+int dataPin = 11;
+
+
+int pinone = 2;
+int pintwo = 3;
+int pinthree = 4;
+int pinfour = 4;
+int pinfive = 6;
+int pinsix = 7;
+
+
+
+
+
+// the wait time
+int wait = 500;
+int homeTens = 0;
+int homeOnes = 0;
+int homeTotal = 0;
+
+int guestTens = 0;
+int guestOnes = 0;
+int guestTotal = 0;
+
+int ball = 0;
+int strike = 0;
+int out = 0;
+
+
+int inning = 1;
+
+//Pin set up to receive the IR signal
+int RECV_PIN = 7;
+IRrecv irrecv(RECV_PIN);
+decode_results results;
+
+void setup() {
+  //set pins to output so you can control the shift register
+  pinMode(latchPin, OUTPUT);
+  pinMode(clockPin, OUTPUT);
+  pinMode(dataPin, OUTPUT);
+
+  
+
+
+  
+  //Start the Serial Monitor
+  Serial.begin(9600);
+  //Start the receiver
+  irrecv.enableIRIn();
+  //initialize board
+  digitalWrite(latchPin, LOW);
+  shiftOut(dataPin, clockPin, MSBFIRST, bulb(0));
+  shiftOut(dataPin, clockPin, MSBFIRST, bulb(0));
+  shiftOut(dataPin, clockPin, MSBFIRST, bulb(0));
+  shiftOut(dataPin, clockPin, MSBFIRST, bulb(0));
+  shiftOut(dataPin, clockPin, MSBFIRST, bulb(0));
+
+}
+int homeScore(int x) {
+  homeTotal = homeTotal + x;
+  if (homeTotal < 0 || homeTotal == 100)
+    homeTotal = 0;
+}
+
+int guestScore(int x) {
+  guestTotal = guestTotal + x;
+  if (guestTotal < 0 || guestTotal == 100)
+    guestTotal = 0;
+}
+
+int inningScore(int x) {
+  inning = inning + x;
+  if (inning < 0 || inning == 100)
+    inning = 0;
+}
+int ballTotal() {
+  ball = ball++;
+  if (ball < 0 || ball > 3)
+    ball = 0;
+  else if (ball==1){
+   // code for lighting up 1st pin
+    digitalWrite(1, HIGH);
+  } 
+  else if (ball ==2){
+    digitalWrite(1, HIGH);
+    digitalWrite(2, HIGH);
+  }
+  else if (ball ==3){  
+    digitalWrite(1, HIGH);
+    digitalWrite(2, HIGH);
+    digitalWrite(3, HIGH);
+  }
+  else {
+    Serial.println("Error");   
+  }
+}
+
+int strikeTotal() {
+  strike = strike++;
+  if (strike < 0 || strike > 3)
+    strike = 0;
+  else if (strike ==1){
+    digitalWrite(4, HIGH);
+  }
+  else if (strike ==2){
+      digitalWrite(4, HIGH);
+      digitalWrite(5, HIGH);
+  }
+      else {
+    Serial.println("Error");   
+  }    
+  
+}
+int outTotal() {
+  out = out++;
+  if (out < 0 || out > 2)
+    out = 0;
+  else if (out ==1){
+       digitalWrite(6, HIGH);
+  }
+  else if (out ==2){
+       digitalWrite(6, HIGH);
+       digitalWrite(7, HIGH);
+  }
+  else {
+    Serial.println("Error");   
+  }    
+}
+void turnOff() {
+  digitalWrite(latchPin, LOW);
+  shiftOut(dataPin, clockPin, MSBFIRST, 255);
+  shiftOut(dataPin, clockPin, MSBFIRST, 255);
+  digitalWrite(latchPin, HIGH);
+}
+
+int bulb(int x) {
+  if (x == 0)
+    return 128;
+  else if (x == 1)
+    return 188;
+  else if (x == 2)
+    return 9;
+  else if (x == 3)
+    return 24;
+  else if (x == 4)
+    return 52;
+  else if (x == 5)
+    return 18;
+  else if (x == 6)
+    return 2;
+  else if (x == 7)
+    return 184;
+  else if (x == 8)
+    return 0;
+  else if (x == 9)
+    return 48;
+  else
+    Serial.println("Error");
+
+}
+
+void loop() {
+
+  if (irrecv.decode(&results)) {
+    Serial.println(results.value);
+    switch (results.value) {
+      case 494967295 :
+        Serial.println("Repeat signal");
+        break;
+      case 4294967295:
+        //This is our repeat value
+        break;
+      case 4278231645:
+        homeScore(1);
+        Serial.println ("Playlist UP");
+        break;
+      case 4278211245:
+        homeScore(-1);
+        Serial.println("Playlist DOWN");
+        break;
+      case 4042557090:
+        homeTotal = (0);
+        Serial.println("CLEAR");
+        break;
+      case 4278249495:
+        guestScore(1);
+        Serial.println("Album Up");
+        break;
+      case 4278245415:
+        Serial.println("Album Dwn");
+        guestScore(-1);
+      break;
+   case 4278216855:
+       inningScore(1);
+      break;
+   case 4278241335:
+        inningScore(-1);
+      break;
+        // repeat 
+    case 4278210735:
+        strikeTotal();
+        break; 
+    case 4278215325:
+        ballTotal();
+       break; 
+    case 4278222975:
+        outTotal();
+        break;
+    default:
+        Serial.println(results.value);
+        Serial.println("Not recorded yet");
+        break;
+    }
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(guestTotal / 10));
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(guestTotal % 10));
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(homeTotal / 10));
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(homeTotal % 10));
+    
+
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(inning / 10));
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(inning % 10));
+
+
+
+    Serial.print("Home Score ");
+    Serial.println(homeTotal);
+    Serial.print("GuestScore ");
+    Serial.println(guestTotal);
+    digitalWrite(latchPin, HIGH);
+
+    Serial.print("Inning");
+    Serial.println(inning);
+
+    
+    irrecv.resume(); // Receive the next value
+    }
+  
+  //delay(wait);
+}
