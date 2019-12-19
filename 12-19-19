@@ -1,0 +1,285 @@
+// Home Guest Inning with ball strikes and outs
+
+//import the IR library
+#include <IRremote.h>
+#include <IRremoteInt.h>
+
+//Pin connected to ST_CP of 74HC595
+int latchPin = 8;
+//Pin connected to SH_CP of 74HC595
+int clockPin = 12;
+////Pin connected to DS of 74HC595
+int dataPin = 11;
+
+// output wire - pin assignment on Arduino
+int ballOne = 9;
+int ballTwo = 2;
+int ballThree = 3;
+
+int strikeOne = 4;
+int strikeTwo = 5;
+
+int outOne = 6;
+int outTwo = 13;
+
+
+
+
+
+
+
+// the wait time
+int wait = 500;
+int homeTens = 0;
+int homeOnes = 0;
+int homeTotal = 0;
+
+int guestTens = 0;
+int guestOnes = 0;
+int guestTotal = 0;
+
+int ball = 0;
+int strike = 0;
+int out = 0;
+int inning = 1;
+
+//Pin set up to receive the IR signal
+int RECV_PIN = 7;
+IRrecv irrecv(RECV_PIN);
+decode_results results;
+
+void setup() {
+  //set pins to output so you can control the shift register
+  pinMode(latchPin, OUTPUT);
+  pinMode(clockPin, OUTPUT);
+  pinMode(dataPin, OUTPUT);
+
+  pinMode(ballOne, OUTPUT);
+  pinMode(ballTwo, OUTPUT);
+  pinMode(ballThree, OUTPUT);
+
+  pinMode(strikeOne, OUTPUT);
+  pinMode(strikeTwo, OUTPUT);
+
+  pinMode(outOne, OUTPUT);
+  pinMode(outTwo, OUTPUT);
+
+  //Start the Serial Monitor
+  Serial.begin(9600);
+  //Start the receiver
+  irrecv.enableIRIn();
+  //initialize board
+  digitalWrite(latchPin, LOW);
+  //Inning
+  shiftOut(dataPin, clockPin, MSBFIRST, bulb(1));
+  //Guest Tens
+  shiftOut(dataPin, clockPin, MSBFIRST, bulb(0));
+  //Guest Ones
+  shiftOut(dataPin, clockPin, MSBFIRST, bulb(0));
+  //Home Tens
+  shiftOut(dataPin, clockPin, MSBFIRST, bulb(0));
+  //Home Ones 12534
+  shiftOut(dataPin, clockPin, MSBFIRST, bulb(0));
+  digitalWrite(latchPin, HIGH);
+
+}
+
+int homeScore(int x) {
+  homeTotal = homeTotal + x;
+  if (homeTotal < 0 || homeTotal>99)
+    homeTotal = 0;
+}
+
+int guestScore(int x) {
+  guestTotal = guestTotal + x;
+  if (guestTotal < 0 || guestTotal>99)
+    guestTotal = 0;
+}
+
+int inningScore(int x) {
+  inning = inning + x;
+  if (inning < 1|| inning>9){
+    inning = 1;
+  }
+}
+
+int ballTotal() {
+  ball++;
+  Serial.print("Ball");
+  Serial.println(ball);
+  if (ball < 0 || ball > 3){
+    digitalWrite(ballOne,LOW);
+    digitalWrite(ballTwo,LOW);
+    digitalWrite(ballThree,LOW);
+    ball = 0;
+    Serial.println("Ball 0");
+  }
+  else if (ball==1){
+   // code for lighting up 1st pin
+    digitalWrite(ballOne, HIGH);
+    Serial.println("Ball 1");
+  } 
+  else if (ball==2){
+    digitalWrite(ballOne, HIGH);
+    digitalWrite(ballTwo, HIGH);
+    Serial.println("Ball 2");
+  }
+  else if (ball==3){  
+    digitalWrite(ballOne, HIGH);
+    digitalWrite(ballTwo, HIGH);
+    digitalWrite(ballThree, HIGH);
+    Serial.println("Ball 3");
+  }
+  else {
+    Serial.println("Error in Ball");   
+  }
+}
+
+int strikeTotal() {
+  strike++;
+   Serial.print("Strike");
+  Serial.println(strike);
+  if (strike < 0 || strike > 2){
+    digitalWrite(strikeOne,LOW);
+    digitalWrite(strikeTwo,LOW);
+    strike = 0;
+    Serial.println("Strike 0");
+  }
+  else if (strike ==1){
+    digitalWrite(strikeOne, HIGH);
+    Serial.println("Strike 1");
+  }
+  else if (strike ==2){
+      digitalWrite(strikeOne, HIGH);
+      digitalWrite(strikeTwo, HIGH);
+      Serial.println("Strike 2");
+  }
+      else {
+    Serial.println("Error in Strike");   
+  }    
+  
+}
+
+int outTotal() {
+  out++;
+  Serial.print("Ball");
+  Serial.println(ball);
+  if (out < 0 || out > 2){
+  digitalWrite(outOne,LOW);
+  digitalWrite(outTwo,LOW);
+  out=0;
+  Serial.println("Out 0");
+  }
+  else if (out ==1){
+       digitalWrite(outOne, HIGH);
+       Serial.println("Ball 1");
+  }
+  else if (out ==2){
+       digitalWrite(outOne, HIGH);
+       digitalWrite(outTwo, HIGH);
+       Serial.println("Ball 2");
+  }
+  else {
+    Serial.println("Error");   
+  }    
+}
+
+int bulb(int x) {
+  if (x == 0)
+    return 128;
+  else if (x == 1)
+    return 188;
+  else if (x == 2)
+    return 9;
+  else if (x == 3)
+    return 24;
+  else if (x == 4)
+    return 52;
+  else if (x == 5)
+    return 18;
+  else if (x == 6)
+    return 2;
+  else if (x == 7)
+    return 184;
+  else if (x == 8)
+    return 0;
+  else if (x == 9)
+    return 48;
+  else
+    Serial.println("Error");
+
+}
+
+void loop() {
+  if (irrecv.decode(&results)) {
+    Serial.println(results.value);
+    switch (results.value) {
+      case 494967295 :
+        Serial.println("Repeat signal");
+        break;
+      case 4294967295:
+        //This is our repeat value
+        break;
+      case 4278231645:
+        homeScore(1);
+        Serial.println ("Playlist UP");
+        break;
+      case 4278211245:
+        homeScore(-1);
+        Serial.println("Playlist DOWN");
+        break;
+      case 4042557090:
+        homeTotal = (0);
+        Serial.println("CLEAR");
+        break;
+      case 4278249495:
+        guestScore(1);
+        Serial.println("Album Up");
+        break;
+      case 4278245415:
+        Serial.println("Album Dwn");
+        guestScore(-1);
+      break;
+   case 4278216855:
+       inningScore(1);
+      break;
+   case 4278241335:
+        inningScore(-1);
+      break;
+        // repeat 
+    case 4278204615:
+        strikeTotal();
+        break; 
+    case 4278218895: //Stop button
+        ballTotal();
+        Serial.println("Pause");
+       break; 
+    case 4278237255: //Vol -
+        outTotal();
+        break;
+    default:
+        Serial.println(results.value);
+        Serial.println("Not recorded yet");
+        break;
+    }
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(inning));
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(guestTotal / 10));
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(guestTotal % 10));
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(homeTotal / 10));
+    shiftOut(dataPin, clockPin, MSBFIRST, bulb(homeTotal % 10));
+    
+    digitalWrite(latchPin, HIGH);
+    
+    Serial.print("Home Score ");
+    Serial.println(homeTotal);
+    Serial.print("GuestScore ");
+    Serial.println(guestTotal);
+    Serial.print("Inning ");
+    Serial.println(inning);
+        
+    irrecv.resume(); // Receive the next value
+    }
+  
+  //delay(wait);
+}
