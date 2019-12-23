@@ -1,0 +1,12 @@
+//maybe need a Serial Output method that can be turned on and off
+// rough draft
+
+output(boolean display){
+  if(display==true){
+       Serial.println("INNS   B"+ball+"S"+strike);
+       Serial.println("   "+innning+"    Out"+out);
+       Serial.println("   MM:SS    ");
+       Serial.println("HH "+minutes+" "+seconds+" GG");
+       Serial.println(homeTotal+"       "+guestTotal);
+   }
+}
